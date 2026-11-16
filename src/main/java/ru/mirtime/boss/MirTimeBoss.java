@@ -171,16 +171,23 @@ public class MirTimeBoss extends JavaPlugin implements CommandExecutor, TabCompl
         } catch (Exception e) {
             type = EntityType.RAVAGER;
         }
-        double maxHp = getConfig().getDouble(path + ".health", 1500.0);
-        double dmg = getConfig().getDouble(path + ".damage", 18.0);
+
+        double maxHp = Math.min(1024.0, getConfig().getDouble(path + ".health", 800.0));
+        double dmg = Math.min(2048.0, getConfig().getDouble(path + ".damage", 18.0));
 
         LivingEntity ent = (LivingEntity) loc.getWorld().spawnEntity(loc, type);
         ent.setCustomName(bossName);
         ent.setCustomNameVisible(true);
         ent.setRemoveWhenFarAway(false);
-        if (ent.getAttribute(Attribute.MAX_HEALTH) != null) ent.getAttribute(Attribute.MAX_HEALTH).setBaseValue(maxHp);
-        if (ent.getAttribute(Attribute.ATTACK_DAMAGE) != null) ent.getAttribute(Attribute.ATTACK_DAMAGE).setBaseValue(dmg);
+
+        if (ent.getAttribute(Attribute.MAX_HEALTH) != null) {
+            ent.getAttribute(Attribute.MAX_HEALTH).setBaseValue(maxHp);
+        }
         ent.setHealth(maxHp);
+
+        if (ent.getAttribute(Attribute.ATTACK_DAMAGE) != null) {
+            ent.getAttribute(Attribute.ATTACK_DAMAGE).setBaseValue(dmg);
+        }
 
         if (ent instanceof PiglinAbstract piglin) piglin.setImmuneToZombification(true);
 
