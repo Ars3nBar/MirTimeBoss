@@ -1,0 +1,93 @@
+#    __  __ _        _____ _                
+#   |  \/  (_)_ __  |_   _(_)_ __ ___   ___ 
+#   | |\/| | | '__|   | | | | '_ ` _ \ / _ \
+#   | |  | | | |      | | | | | | | | |  __/
+#   |_|  |_|_|_|      |_| |_|_| |_| |_|\___|
+#                                           
+#   Project: Mir Time | Author: Ars3nBar
+
+prefix: "&#0055ff&l⚡ &#00E5FF&lMIR-TIME &8» "
+
+# ==========================================================
+# 1. НАСТРОЙКА ТОЧКИ СПАВНА БОССОВ
+# Вы можете вписать мир и координаты здесь вручную ИЛИ просто
+# встать в нужное место в игре и написать /boss setspawn
+# ==========================================================
+spawn:
+  world: "game"
+  x: -192.5
+  y: 74.0
+  z: 103.5
+
+# ==========================================================
+# 2. ОБЩИЕ ПРАВИЛА ИВЕНТА
+# ==========================================================
+# Как часто появляется новый босс (в минутах)
+spawn-interval-minutes: 60
+
+# Сколько минимум игроков должно быть на сервере для авто-спавна
+min-online: 2
+
+# Через сколько секунд без ударов босс исчезнет сам (без наград)
+idle-despawn-seconds: 60
+
+# ==========================================================
+# 3. НАСТРОЙКА БОССОВ (имена, здоровье, урон и награды)
+# Можно свободно менять любые названия, цифры HP и команды наград!
+# После изменений напишите в игре: /boss reload
+# ==========================================================
+bosses:
+  spider:
+    name: "&#00FF66&l🕷 Королева Пауков"
+    type: "SPIDER"
+    health: 1000.0
+    damage: 14.0
+    bar-color: "GREEN"
+    rewards:
+      top1: ["eco give %player% 40000", "p give %player% 300"]
+      top2: ["eco give %player% 20000", "p give %player% 150"]
+      top3: ["eco give %player% 10000", "p give %player% 50"]
+
+  necromancer:
+    name: "&#00E5FF&l💀 Некромант Арены"
+    type: "WITHER_SKELETON"
+    health: 1500.0
+    damage: 18.0
+    bar-color: "BLUE"
+    rewards:
+      top1: ["eco give %player% 60000", "p give %player% 500"]
+      top2: ["eco give %player% 30000", "p give %player% 250"]
+      top3: ["eco give %player% 15000", "p give %player% 100"]
+
+  ravager:
+    name: "&6&l🐗 Бешеный Разрушитель"
+    type: "RAVAGER"
+    health: 2000.0
+    damage: 22.0
+    bar-color: "YELLOW"
+    rewards:
+      top1: ["eco give %player% 80000", "p give %player% 700"]
+      top2: ["eco give %player% 40000", "p give %player% 350"]
+      top3: ["eco give %player% 20000", "p give %player% 150"]
+
+  berserk:
+    name: "&c&l🔥 Огненный Пиглин-Берсерк"
+    type: "PIGLIN_BRUTE"
+    health: 2500.0
+    damage: 26.0
+    bar-color: "RED"
+    rewards:
+      top1: ["eco give %player% 100000", "p give %player% 1000"]
+      top2: ["eco give %player% 50000", "p give %player% 500"]
+      top3: ["eco give %player% 25000", "p give %player% 200"]
+
+  warden:
+    name: "&#0055ff&l👁 Древний Хранитель Бездны"
+    type: "WARDEN"
+    health: 3500.0
+    damage: 32.0
+    bar-color: "PURPLE"
+    rewards:
+      top1: ["eco give %player% 150000", "p give %player% 1500", "mtitems give %player% totem 1"]
+      top2: ["eco give %player% 75000", "p give %player% 750"]
+      top3: ["eco give %player% 35000", "p give %player% 300"]
